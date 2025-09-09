@@ -19,3 +19,17 @@ jobs:
         if: ${{ success() }} # if previous step succeeded
         run: |
           echo "Running because the previous step succeeded"
+
+      - name: Step 3 - Step that fails
+        run: |
+          echo "I am failing"
+          exit 1 #Returns a 1, indicating failure
+
+      - name: Step 4 - Step that will never execute
+        run: |
+          echo "Step that does not execute."
+
+      - name: Step 5 - Execute on Workflow failure
+        if: ${{ failure() }} #if the workflow failed
+        run: |
+          echo "Running because Workflow failed"
