@@ -1,0 +1,12 @@
+name: "01 Hello World"
+
+on:
+  workflow_dispatch: #This sets the event to trigger the workflow manually
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest # Sets the runner environment
+
+    steps:
+      - name: Hello World
+        run: echo "Hello, world!"
