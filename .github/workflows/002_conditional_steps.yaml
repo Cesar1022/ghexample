@@ -4,17 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
+  example_job:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Step 1 - Exit Code 0
-      id: successful_step
-      run: |
-        echo "exit code 0"
-        exit 0 #Success (exit code 0)
-      shell: bash #exmple of changing shell per script
+    steps:
+      - name: Step 1 - Exit Code 0
+        id: successful_step
+        run: |
+          echo "exit code 0"
+          exit 0 #Success (exit code 0)
+        shell: bash #exmple of changing shell per script
 
-    - name: Step 2 - Execute if previous Succeeded
-      if: ${{ success() }} # if previous step succeeded
-      run: |
-        echo "Running because the previous step succeeded"
+      - name: Step 2 - Execute if previous Succeeded
+        if: ${{ success() }} # if previous step succeeded
+        run: |
+          echo "Running because the previous step succeeded"
