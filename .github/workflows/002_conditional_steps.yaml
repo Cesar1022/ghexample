@@ -15,7 +15,7 @@ jobs:
           exit 0 #Success (exit code 0)
         shell: bash #exmple of changing shell per script
 
-    - name: Step 2 - Execute if previous Succeeded
-      if: ${{ success() }} # if previous step succeeded
-      run: |
-        echo "Running because the previous step succeeded"
+      - name: Step 2 - Execute if previous Succeeded
+        if: ${{ success() }} # if previous step succeeded
+        run: |
+          echo "Running because the previous step succeeded"
